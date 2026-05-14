@@ -112,5 +112,6 @@ void ILI9341_Init(SPI_HandleTypeDef *hspi);
 void ILI9341_FillScreen(SPI_HandleTypeDef *hspi, uint32_t color);
 void ILI9341_SHOW_CHAR_X(uint8_t X,uint16_t Y,uint8_t chars, ILI9341_character_st character);
 void ILI9341_SHOW_STRING_X(uint8_t X,uint16_t Y,const char *p, ILI9341_character_st character);
-
+void ILI9341_SHOW_IMAGE(uint8_t X,uint16_t Y );
+extern unsigned char gImage_Logo[97928];
 #endif

@@ -120,6 +120,7 @@ int main(void)
   ILI9341_string_st.textcolor_u16  = BLUE;
   ILI9341_string_st.Font_Size_u16  = FONT_16x8;
   ILI9341_SHOW_STRING_X(0,0,"Hello Word",ILI9341_string_st);
+  HAL_Delay(1000);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -129,14 +130,15 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    ILI9341_string_st.background_color_u16 = WHITE;
-    ILI9341_string_st.textcolor_u16  = BLUE;
-	  ILI9341_SHOW_STRING_X(x_pos,y_pos,"Hello Word     ",ILI9341_string_st);
-	  HAL_Delay(1000);
-    ILI9341_string_st.background_color_u16 = RED;
-    ILI9341_string_st.textcolor_u16  = GREEN;
-	  ILI9341_SHOW_STRING_X(x_pos,y_pos,"STM32MP157D-DK1",ILI9341_string_st);
-	  HAL_Delay(1000);
+//    ILI9341_string_st.background_color_u16 = WHITE;
+//    ILI9341_string_st.textcolor_u16  = BLUE;
+//	  ILI9341_SHOW_STRING_X(x_pos,y_pos,"Hello Word     ",ILI9341_string_st);
+//	  HAL_Delay(1000);
+//    ILI9341_string_st.background_color_u16 = RED;
+//    ILI9341_string_st.textcolor_u16  = GREEN;
+//	  ILI9341_SHOW_STRING_X(x_pos,y_pos,"STM32MP157D-DK1",ILI9341_string_st);
+//	  HAL_Delay(1000);
+	  ILI9341_SHOW_IMAGE(0,0);
   }
   /* USER CODE END 3 */
 }
