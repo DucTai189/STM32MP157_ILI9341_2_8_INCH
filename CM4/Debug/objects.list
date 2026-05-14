@@ -1,5 +1,6 @@
 "./Common/System/system_stm32mp1xx.o"
 "./Core/Src/ILI9341_SPI.o"
+"./Core/Src/Logo.o"
 "./Core/Src/dma.o"
 "./Core/Src/gpio.o"
 "./Core/Src/ipcc.o"

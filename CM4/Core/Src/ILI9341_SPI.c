@@ -189,6 +189,37 @@ void ILI9341_SHOW_CHAR_X(uint8_t X,uint16_t Y,uint8_t chars, ILI9341_character_s
 
 
 }
+#define IMAGE_WIDTH  240  // actual output width
+#define IMAGE_HEIGHT 160  // actual output height
+void ILI9341_SHOW_IMAGE(uint8_t X,uint16_t Y )
+{
+	uint16_t color_16bit_u16;
+
+    if( X > ILI9341_SPI_MAXIMUM_COLUMN || Y > ILI9341_SPI_MAXIMUM_ROW) 
+    {
+        return;
+    }
+    
+    ILI9341_WRITE_REG_32(ILI9341_CASET, 0, X + IMAGE_WIDTH-1); // Column address set. 0 is start column
+
+    ILI9341_WRITE_REG_32(ILI9341_PASET, 0, Y + IMAGE_HEIGHT - 1); // Row address set. 0 is start row
+
+    ILI9341_Write_Cmd(&hspi_ili9341, ILI9341_RAMWR); // Memory write
+
+    HAL_GPIO_WritePin(ILI9341_DC_GPIO_Port, ILI9341_DC_Pin, GPIO_PIN_SET);   // Data mode
+    HAL_GPIO_WritePin(ILI9341_CS_GPIO_Port, ILI9341_CS_Pin, GPIO_PIN_RESET); // CS low
+    // Dispaly image 
+    for(uint16_t row = 0; row < IMAGE_HEIGHT; row++)
+    {
+        HAL_SPI_Transmit(&hspi_ili9341,
+                         (uint8_t*)&gImage_Logo[row * IMAGE_WIDTH * 2],
+                         IMAGE_WIDTH * 2,   // 480 bytes per row 
+                         HAL_MAX_DELAY);
+    }
+    HAL_GPIO_WritePin(ILI9341_CS_GPIO_Port, ILI9341_CS_Pin, GPIO_PIN_SET);   // CS high
+
+
+}
 static void ILI9341_WRITE_REG_32(uint8_t cmd, uint16_t data1, uint16_t data2)
 {
     ILI9341_Write_Cmd(&hspi_ili9341,cmd);

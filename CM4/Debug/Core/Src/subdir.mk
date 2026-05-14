@@ -6,6 +6,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Core/Src/ILI9341_SPI.c \
+../Core/Src/Logo.c \
 ../Core/Src/dma.c \
 ../Core/Src/gpio.c \
 ../Core/Src/ipcc.c \
@@ -18,6 +19,7 @@ C_SRCS += \
 
 OBJS += \
 ./Core/Src/ILI9341_SPI.o \
+./Core/Src/Logo.o \
 ./Core/Src/dma.o \
 ./Core/Src/gpio.o \
 ./Core/Src/ipcc.o \
@@ -30,6 +32,7 @@ OBJS += \
 
 C_DEPS += \
 ./Core/Src/ILI9341_SPI.d \
+./Core/Src/Logo.d \
 ./Core/Src/dma.d \
 ./Core/Src/gpio.d \
 ./Core/Src/ipcc.d \
@@ -48,7 +51,7 @@ Core/Src/%.o Core/Src/%.su Core/Src/%.cyclo: ../Core/Src/%.c Core/Src/subdir.mk
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/ILI9341_SPI.cyclo ./Core/Src/ILI9341_SPI.d ./Core/Src/ILI9341_SPI.o ./Core/Src/ILI9341_SPI.su ./Core/Src/dma.cyclo ./Core/Src/dma.d ./Core/Src/dma.o ./Core/Src/dma.su ./Core/Src/gpio.cyclo ./Core/Src/gpio.d ./Core/Src/gpio.o ./Core/Src/gpio.su ./Core/Src/ipcc.cyclo ./Core/Src/ipcc.d ./Core/Src/ipcc.o ./Core/Src/ipcc.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/spi.cyclo ./Core/Src/spi.d ./Core/Src/spi.o ./Core/Src/spi.su ./Core/Src/stm32mp1xx_hal_msp.cyclo ./Core/Src/stm32mp1xx_hal_msp.d ./Core/Src/stm32mp1xx_hal_msp.o ./Core/Src/stm32mp1xx_hal_msp.su ./Core/Src/stm32mp1xx_it.cyclo ./Core/Src/stm32mp1xx_it.d ./Core/Src/stm32mp1xx_it.o ./Core/Src/stm32mp1xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su
+	-$(RM) ./Core/Src/ILI9341_SPI.cyclo ./Core/Src/ILI9341_SPI.d ./Core/Src/ILI9341_SPI.o ./Core/Src/ILI9341_SPI.su ./Core/Src/Logo.cyclo ./Core/Src/Logo.d ./Core/Src/Logo.o ./Core/Src/Logo.su ./Core/Src/dma.cyclo ./Core/Src/dma.d ./Core/Src/dma.o ./Core/Src/dma.su ./Core/Src/gpio.cyclo ./Core/Src/gpio.d ./Core/Src/gpio.o ./Core/Src/gpio.su ./Core/Src/ipcc.cyclo ./Core/Src/ipcc.d ./Core/Src/ipcc.o ./Core/Src/ipcc.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/spi.cyclo ./Core/Src/spi.d ./Core/Src/spi.o ./Core/Src/spi.su ./Core/Src/stm32mp1xx_hal_msp.cyclo ./Core/Src/stm32mp1xx_hal_msp.d ./Core/Src/stm32mp1xx_hal_msp.o ./Core/Src/stm32mp1xx_hal_msp.su ./Core/Src/stm32mp1xx_it.cyclo ./Core/Src/stm32mp1xx_it.d ./Core/Src/stm32mp1xx_it.o ./Core/Src/stm32mp1xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su
 
 .PHONY: clean-Core-2f-Src
 
